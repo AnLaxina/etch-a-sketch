@@ -21,6 +21,14 @@ for (let col = 0; col < 16; col++) {
 
         col.appendChild(row);
     }
-
-
 }
+
+// Once the grid has been created, it's time to handle the drawing aspect of each square
+function draw(event) {
+    let target = event.target;
+
+    target.classList.remove("square");
+    target.classList.add("highlighted");
+}
+
+sketchPad.addEventListener("mouseover", draw);
