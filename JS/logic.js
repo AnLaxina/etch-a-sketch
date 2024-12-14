@@ -42,6 +42,16 @@ sketchPad.addEventListener("mouseover", draw);
 
 // Handle the "Change grid size" button
 const changeSizeButton = document.querySelector("button");
+changeSizeButton.addEventListener("click", removeSketchPad);
+
+// Remove old sketch pad
+function removeSketchPad() {
+    const currentSketchPad = document.querySelector(".sketch-pad");
+    currentSketchPad.remove();
+}
+
+
+// Ensures that the user inputs a valid input (number between 1 - 100)
 changeSizeButton.addEventListener("click", () => {
     let gridSize = prompt("Enter a number between 1 - 100");
     let isValid = true;
@@ -56,8 +66,6 @@ changeSizeButton.addEventListener("click", () => {
         }
     }
 
-    sketchPad.remove();
-
     const main = document.querySelector("main");
     const newSketchPad = document.createElement("div");
     newSketchPad.classList.add("sketch-pad");
@@ -67,4 +75,3 @@ changeSizeButton.addEventListener("click", () => {
     newSketchPad.addEventListener("mouseover", draw);
 
 })
-
